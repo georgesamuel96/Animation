@@ -35,6 +35,7 @@ public class GravityActivity extends AppCompatActivity {
     }
 
     private void runVertically() {
+        timeY = (int) getTime();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -49,8 +50,8 @@ public class GravityActivity extends AppCompatActivity {
                 if(isOut(pointX, pointY)){
                     if(slop > 0) {
                         val = Math.min(val + 50, container.getHeight() - ball.getHeight());
-                        timeY += 2;
                     }
+                    timeY = (int) getTime();
 //                    speedY *= -1;
                     slop *= -1;
 //                    pointY += speedY;
@@ -59,6 +60,10 @@ public class GravityActivity extends AppCompatActivity {
 
             }
         }, 100);
+    }
+
+    private double getTime() {
+        return Math.sqrt(2.0 * distance / 9.8);
     }
 
     private double getSpeed() {
