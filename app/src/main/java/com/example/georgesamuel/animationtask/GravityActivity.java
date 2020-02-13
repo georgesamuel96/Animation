@@ -52,9 +52,7 @@ public class GravityActivity extends AppCompatActivity {
                         val = Math.min(val + 50, container.getHeight() - ball.getHeight());
                     }
                     timeY = (int) getTime();
-//                    speedY *= -1;
                     slop *= -1;
-//                    pointY += speedY;
                 }
                 handler.postDelayed(this, timeY);
 
